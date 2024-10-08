@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "vo"
+version = "0.1.0"
+description = "Visual odometry for CSCI507"
+authors = ["chrislarson <c.lars701@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.10.12"
+opencv-python = "^4.8.1.78"
+pyserial = "^3.5"
+tqdm = "^4.66.1"
+bokeh = "^3.3.1"
+matplotlib = "^3.8.2"
+spatialmath-python = "^1.1.8"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.3"
+black = "^23.10.1"
+flake8 = "^6.1.0"
+pyright = "^1.1.333"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+# addopts = "-ra -q"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.pyright]
+venvPath = ["."]
+venv = [".venv"]
+include = ["src"]
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "src/experimental",
+    "src/typestubs",
+]
+reportMissingImports = false
+
+[tool.black]
+line-length = 100
